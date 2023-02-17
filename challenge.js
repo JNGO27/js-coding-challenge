@@ -75,4 +75,23 @@ function getAllTracks(apiResponse) {
   return apiResponse.map(({ tracks }) => tracks).flat();
 }
 
-console.log(datesWithOccurences(response));
+function matchArtistByDate(apiResponse) {
+  const allTracks = getAllTracks(apiResponse);
+  const dates = uniqueDates(apiResponse);
+  const sortedDates = sortByDate(dates);
+
+  return sortedDates.map((date) => {
+    const artists = [];
+
+    allTracks.map(({ timestp, trackName }) => {
+      if (timestp === date) {
+        artists.push(trackName);
+      }
+    });
+
+    return {
+      date,
+      tooltip: artists,
+    };
+  });
+}
