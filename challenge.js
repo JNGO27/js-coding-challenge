@@ -95,3 +95,17 @@ function matchArtistsByDate(apiResponse) {
     };
   });
 }
+
+function artistsOccurences(tooltipArr) {
+  const result = {};
+
+  tooltipArr.forEach((artist) => {
+    if (result[artist]) {
+      result[artist] += 1;
+    } else {
+      result[artist] = 1;
+    }
+  });
+
+  return Object.entries(result);
+}
