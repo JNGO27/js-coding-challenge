@@ -109,3 +109,12 @@ function artistsOccurences(tooltipArr) {
 
   return Object.entries(result);
 }
+
+function artistsCountByDate(artistsByDate) {
+  return artistsByDate.map(({ tooltip }) => {
+    const occurences = artistsOccurences(tooltip);
+    return occurences.map(
+      (artistWithCount) => `${artistWithCount[0]} (${artistWithCount[1]})`
+    );
+  });
+}
