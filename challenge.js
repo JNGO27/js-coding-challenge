@@ -50,4 +50,25 @@ function sortByDate(datesSet) {
   });
 }
 
-console.log(sortByDate(uniqueDates(response)));
+function datesWithOccurences(apiResponse) {
+  const dates = uniqueDates(apiResponse);
+  const sortedDates = sortByDate(dates);
+
+  return apiResponse.map(({ tracks }, idx) => {
+    let count = 0;
+    let timestamp = sortedDates[idx];
+
+    tracks.map(({ timestp }) => {
+      if (dates.has(timestp)) {
+        count += 1;
+      }
+    });
+
+    return {
+      x: timestamp,
+      y: count,
+    };
+  });
+}
+
+console.log(datesWithOccurences(response));
