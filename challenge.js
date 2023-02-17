@@ -75,7 +75,7 @@ function getAllTracks(apiResponse) {
   return apiResponse.map(({ tracks }) => tracks).flat();
 }
 
-function matchArtistByDate(apiResponse) {
+function matchArtistsByDate(apiResponse) {
   const allTracks = getAllTracks(apiResponse);
   const dates = uniqueDates(apiResponse);
   const sortedDates = sortByDate(dates);
