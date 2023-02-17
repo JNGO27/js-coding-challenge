@@ -39,3 +39,15 @@ function uniqueDates(apiResponse) {
 
   return datesSet;
 }
+
+function sortByDate(datesSet) {
+  const datesArr = Array.from(datesSet);
+
+  return datesArr.sort((a, b) => {
+    let dateA = new Date(a);
+    let dateB = new Date(b);
+    return dateA - dateB;
+  });
+}
+
+console.log(sortByDate(uniqueDates(response)));
