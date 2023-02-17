@@ -71,4 +71,8 @@ function datesWithOccurences(apiResponse) {
   });
 }
 
+function getAllTracks(apiResponse) {
+  return apiResponse.map(({ tracks }) => tracks).flat();
+}
+
 console.log(datesWithOccurences(response));
