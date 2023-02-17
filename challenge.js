@@ -118,3 +118,17 @@ function artistsCountByDate(artistsByDate) {
     );
   });
 }
+
+function apiTransformer(apiResponse) {
+  const objXY = datesWithOccurences(apiResponse);
+  const artistByDate = matchArtistsByDate(apiResponse);
+  const artistCountsWithFormat = artistsCountByDate(artistByDate);
+  const result = objXY.map((obj, idx) => ({
+    ...obj,
+    tooltip: artistCountsWithFormat[idx],
+  }));
+
+  return result;
+}
+
+console.log(apiTransformer(response));
