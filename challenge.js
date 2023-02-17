@@ -125,10 +125,28 @@ function apiTransformer(apiResponse) {
   const artistCountsWithFormat = artistsCountByDate(artistByDate);
   const result = objXY.map((obj, idx) => ({
     ...obj,
-    tooltip: artistCountsWithFormat[idx],
+    tooltip: artistCountsWithFormat[idx].join(', '),
   }));
 
   return result;
 }
 
 console.log(apiTransformer(response));
+
+/*
+  response:
+
+[
+  { x: '2021-04-07', y: 1, tooltip: 'Captain Hook (1)' },
+  {
+    x: '2021-04-08',
+    y: 5,
+    tooltip: 'Peaches (1), Savage (3), Captain Hook (1)'
+  },
+  {
+    x: '2021-04-09',
+    y: 3,
+    tooltip: 'Savage (1), Savage (feat. Beyonce) (1), Captain Hook (1)'
+  }
+]
+*/
