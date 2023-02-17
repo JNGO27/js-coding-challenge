@@ -131,10 +131,11 @@ function apiTransformer(apiResponse) {
   return result;
 }
 
-console.log(apiTransformer(response));
+const data = apiTransformer(response);
+console.log(data);
 
 /*
-  response:
+  data:
 
 [
   { x: '2021-04-07', y: 1, tooltip: 'Captain Hook (1)' },
