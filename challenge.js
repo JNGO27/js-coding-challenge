@@ -39,5 +39,3 @@ function uniqueDates(apiResponse) {
 
   return datesSet;
 }
-
-console.log(uniqueDates(response));
